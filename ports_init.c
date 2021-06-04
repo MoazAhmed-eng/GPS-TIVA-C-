@@ -15,32 +15,32 @@ Port F --> LED
 
 //Intializing Clock for ports B,D,F
 SYSCTL_RCGCGPIO_R|=0x2A;
-while((SYSCTL_PRGPIO_R&(0x2A))==0);
+//while((SYSCTL_PRGPIO_R&(0x2A))==0);
 //Unlocking
 GPIO_PORTD_LOCK_R= GPIO_LOCK_KEY;
 GPIO_PORTF_LOCK_R= GPIO_LOCK_KEY;
 //pinF0
 GPIO_PORTF_CR_R|=0x13;
 //pinD7
-GPIO_PORTD_CR_R|=0x07;
+GPIO_PORTD_CR_R|=0xFF;
 
 // Enabling Digital
 
 //For All pins in B
 GPIO_PORTB_DEN_R|=0xFF;
 //For Pins F0,F1,F4
-GPIO_PORTF_DEN_R|=0x13;
+GPIO_PORTF_DEN_R|=0xFF;
 // For LCD Control
 GPIO_PORTD_DEN_R|=0x07;
 
 // Disabling Analog function
 GPIO_PORTB_AMSEL_R &=~0xFF;
-GPIO_PORTD_AMSEL_R &=~0x07;
+GPIO_PORTD_AMSEL_R =0x00;
 GPIO_PORTF_AMSEL_R &=~0x13;
 
 // Disabling AFSEL
 GPIO_PORTB_AFSEL_R&=~0xFF;
-GPIO_PORTD_AFSEL_R&=~0x07;
+GPIO_PORTD_AFSEL_R=0x00;
 GPIO_PORTF_AFSEL_R&=~0x13;
 
 //Choosing GPIO
@@ -53,7 +53,7 @@ GPIO_PORTF_PUR_R|=0x11;
 
 //selecting the direction
 GPIO_PORTB_DIR_R|=0xFF;
-GPIO_PORTD_DIR_R|=0x07;
+GPIO_PORTD_DIR_R|=0xFF;
 GPIO_PORTF_DIR_R|=0x0E;
 
 
