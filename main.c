@@ -18,7 +18,7 @@ int main(void)
 	LCD_prnt_str(x);
     for (;;)
     {
-
+	turnOnRedLed(120);
     }
 return 0;
 
