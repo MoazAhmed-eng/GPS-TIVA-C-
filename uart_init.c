@@ -4,6 +4,7 @@
 
 void uart_init(void)
 {
+//This better will need to get edited as pins A0,A1 are not visible on the board itself	
 //UART initialization (A0,A1)
 
 //Initalizing Clock for UART0
