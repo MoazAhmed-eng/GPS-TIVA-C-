@@ -27,11 +27,7 @@ void delay_us(int n)
 // RS for PD0 , RW for PD1 and E for PD2
 void LCD_comm (unsigned char command)
 {
-
-	    if(command & 0x40) 
-		{
-					GPIO_PORTD_DATA_R |= 0x08;
-		}	
+		
 			GPIO_PORTB_DATA_R =command;
     GPIO_PORTD_DATA_R &= ~0X01; 
 	    GPIO_PORTD_DATA_R &= ~0X02; 
@@ -47,12 +43,8 @@ void LCD_comm (unsigned char command)
 
 void LCD_Data(unsigned char data) 
 { 			
-	
-    if(data & 0x40) 
-		{
-					GPIO_PORTD_DATA_R |= 0x08;
-		}	
-
+	//Pin b6 is damaged and gives 1 at all times , so I am using pin A3
+	if(data & 0x40) GPIO_PORTA_DATA_R |= (0x08);
 
 			GPIO_PORTB_DATA_R = data;
 	
@@ -82,6 +74,15 @@ void LCD_init(void)
 
 }
 
+void LCD_prnt_str(unsigned char *str)
+{
+	int counter;
+	for(counter = 0; str[counter] != '\0'; counter++) // \0 means end of the string
+	{
+		LCD_Data(str[counter]);
+		delay_ms(1);
+	}
+
 		
 
 
@@ -91,4 +92,4 @@ void LCD_init(void)
 
 
 
-
+}
