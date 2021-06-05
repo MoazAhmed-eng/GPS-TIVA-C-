@@ -4,4 +4,4 @@
 
       ---PIN map and schematic----
       
-![Schematic](https://user-images.githubusercontent.com/63327970/120906020-62159200-c656-11eb-958d-0f19f653596f.jpg)
+![Schematic](https://user-images.githubusercontent.com/63327970/120906189-a9e8e900-c657-11eb-919e-5d990113f875.jpg)
