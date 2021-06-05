@@ -12,7 +12,7 @@ Port F --> LED
 
 */
 	
-	// Intializing port A to compensate forr the broken b6 pin
+	// Intializing port A to compensate for the broken b6 pin
 	
 	SYSCTL_RCGCGPIO_R|=0x01;
 	GPIO_PORTA_CR_R = 0xFF;
