@@ -28,44 +28,41 @@ void delay_us(int n)
 void LCD_comm (unsigned char command)
 {
 		
-			GPIO_PORTB_DATA_R =command;
+    GPIO_PORTB_DATA_R =command;
     GPIO_PORTD_DATA_R &= ~0X01; 
-	    GPIO_PORTD_DATA_R &= ~0X02; 
-
-	delay_ms(1);
-	  GPIO_PORTD_DATA_R |= 0x04 ; // E=1
-     delay_us(1); 
-		  GPIO_PORTD_DATA_R &= ~ 0x04 ; // E=0
-		delay_us(5);
+    GPIO_PORTD_DATA_R &= ~0X02; 
+    delay_ms(1);
+    GPIO_PORTD_DATA_R |= 0x04 ; // E=1
+    delay_us(1); 
+    GPIO_PORTD_DATA_R &= ~ 0x04 ; // E=0
+    delay_us(5);
 
 } 
 
 
 void LCD_Data(unsigned char data) 
 { 			
-	//Pin b6 is damaged and gives 1 at all times , so I am using pin A3
-	if(data & 0x40) GPIO_PORTA_DATA_R |= (0x08);
+	   //Pin b6 is damaged and gives 1 at all times , so I am using pin A3 
+	   //It appears that using B and D together for the LCD makes some conflict in the signals
+	   if(data & 0x40) GPIO_PORTA_DATA_R |= (0x08);
 
-			GPIO_PORTB_DATA_R = data;
-	
-	
-
-    GPIO_PORTD_DATA_R |= 0x01 ; // RS=1
+	   GPIO_PORTB_DATA_R = data;
+           GPIO_PORTD_DATA_R |= 0x01 ; // RS=1
 	   GPIO_PORTD_DATA_R &= ~ 0x02 ; // RW=0
-	    GPIO_PORTD_DATA_R |= 0x04 ; // E=1
-	delay_us(1);
-			  GPIO_PORTD_DATA_R &= ~ 0x04 ; // E=0
-     delay_us(1); 
+	   GPIO_PORTD_DATA_R |= 0x04 ; // E=1
+	   delay_us(1);
+	   GPIO_PORTD_DATA_R &= ~ 0x04 ; // E=0
+           delay_us(1); 
 }
 	
 
 void LCD_init(void)
 {
 	
-		 delay_ms(20);
-     LCD_comm(0x38); // Select 8-bit Mode of LCD
-	 delay_us(50);
-     LCD_comm(0x0F); // display on , cursor blinking
+         delay_ms(20);
+         LCD_comm(0x38); // Select 8-bit Mode of LCD
+         delay_us(50);
+         LCD_comm(0x0F); // display on , cursor blinking
 	 delay_us(50);
 	 LCD_comm(0x06); //auto increment cursor
 	 delay_us(50);
@@ -74,6 +71,7 @@ void LCD_init(void)
 
 }
 
+//Function to take string and print it on LCD
 void LCD_prnt_str(unsigned char *str)
 {
 	int counter;
