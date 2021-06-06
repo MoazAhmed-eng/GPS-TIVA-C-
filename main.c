@@ -8,14 +8,17 @@ void SystemInit(void)
 
 int main(void)
 {	
-	unsigned char x[]="hello ";
+	unsigned char x[]="hello 1 2 ";
 	port_init();
 	delay_ms(50);
 	LCD_init();
 	delay_ms(20);
-	LCD_Data('8');
+	LCD_Data('a');
 	delay_ms(1);
 	LCD_prnt_str(x);
+		LCD_Data('8');
+	delay_ms(1);
+
     for (;;)
     {
 	turnOnRedLed(120);

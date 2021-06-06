@@ -52,7 +52,10 @@ void LCD_Data(unsigned char data)
 	   GPIO_PORTD_DATA_R |= 0x04 ; // E=1
 	   delay_us(1);
 	   GPIO_PORTD_DATA_R &= ~ 0x04 ; // E=0
-           delay_us(1); 
+           delay_us(1);
+//making sure to clear all data	
+	GPIO_PORTB_DATA_R=0;
+	GPIO_PORTA_DATA_R &=~ (0x08);
 }
 	
 
