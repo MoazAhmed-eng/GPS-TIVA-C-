@@ -35,12 +35,12 @@ GPIO_PORTC_AMSEL_R &= ~ (0x30) ;
 	
 
 
-Uint8_t UART_READ (void)
+char UART_READ (void)
 	
 {
 	
-    While ( UART0_FR_R & 0x10 == 1 ) {} ;
-    Return ( UART0_DR_R & 0XFF ) ;
+    while ( UART0_FR_R & 0x10 == 1 ) {} ;
+    return ( UART0_DR_R & 0XFF ) ;
 	
 }
 
