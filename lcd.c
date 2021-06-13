@@ -75,7 +75,7 @@ void LCD_init(void)
 }
 
 //Function to take string and print it on LCD
-void LCD_prnt_str(unsigned char *str)
+void LCD_prnt_str( char *str)
 {
 	int counter;
 	for(counter = 0; str[counter] != '\0'; counter++) // \0 means end of the string
@@ -83,6 +83,8 @@ void LCD_prnt_str(unsigned char *str)
 		LCD_Data(str[counter]);
 		delay_ms(1);
 	}
+	
+
 
 		
 
