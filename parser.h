@@ -1,0 +1,1 @@
+double *getPosition(  char *string);
