@@ -2,7 +2,7 @@ void port_init(void);
 void uart_init(void);
 unsigned char UART1_Available(void);
 unsigned char UART1_Read(void);
-void turnOnRedLed(unsigned char distance);
+void turnOnRedLed( char distance);
 void turnOffRedLed(void);
 void LCD_comm (unsigned char command);
 void LCD_Data(unsigned char data);
@@ -13,8 +13,5 @@ double calculate_distance ( double lat1 , double lat2 , double long1 , double lo
 void delay_ms(int n);
 void delay_us(int n);
 char* doubleToStr (double dobl);
-
-
-
-
+void rvereseArray(char arr[], int start, int end);
 

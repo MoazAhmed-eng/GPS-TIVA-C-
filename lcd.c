@@ -81,7 +81,7 @@ void LCD_prnt_str( char *str)
 	for(counter = 0; str[counter] != '\0'; counter++) // \0 means end of the string
 	{
 		LCD_Data(str[counter]);
-		delay_ms(1);
+		delay_ms(500);
 	}
 	
 
