@@ -2,7 +2,7 @@ void port_init(void);
 void uart_init(void);
 unsigned char UART1_Available(void);
 unsigned char UART1_Read(void);
-void turnOnRedLed( char distance);
+void turnOnRedLed( double distance);
 void turnOffRedLed(void);
 void LCD_comm (unsigned char command);
 void LCD_Data(unsigned char data);
