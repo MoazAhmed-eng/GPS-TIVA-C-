@@ -13,5 +13,4 @@ double calculate_distance ( double lat1 , double lat2 , double long1 , double lo
 void delay_ms(int n);
 void delay_us(int n);
 char* doubleToStr (double dobl);
-void rvereseArray(char arr[], int start, int end);
 
