@@ -1,6 +1,8 @@
 #include "func_prototype.h"
 #include "stdint.h"
 #include "func_prototype.h"
+#include "string.h"
+
 
 char* get_NEMA_str()
 {
