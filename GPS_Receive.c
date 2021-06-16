@@ -50,3 +50,20 @@ return tmp_str;
 }
 
 
+char * revCharArr(char string[]){
+    //maximum number 5
+    static char result[5];
+    int nullIndex = strlen(string);
+    for(int i = strlen(string) - 1 ; i >= 0 ; i--){
+        if(string[i] == '\0') {
+            nullIndex = i;
+            break;
+        }
+    }
+    for(int i = 0 ; i < nullIndex ; i++){
+        result[i] = string[nullIndex - i - 1];
+    }
+    return result;
+}
+
+
