@@ -1,3 +1,5 @@
+# This is team project, I Imported the code from the main repo(wasn't my account)
+
 # GPS---TM4C123
 -- Project For Introduction in Embedded Systems --
 
